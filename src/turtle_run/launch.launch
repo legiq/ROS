@@ -1,0 +1,13 @@
+<launch>
+	<node pkg='turtlesim' type='turtlesim_node' name='raphael'>
+		<param name='~background_r' value='119'/>
+		<param name='~background_g' value='0'/>
+		<param name='~background_b' value='179'/>
+		<remap from='/turtle1/pose' to='/michelangelo/pose'/>
+		<remap from='/turtle1/cmd_vel' to='/michelangelo/cmd_vel'/>
+	</node>
+	<node pkg='turtlesim' type='turtle_teleop_key' name='michelangelo_runner'>
+		<remap from='/turtle1/cmd_vel' to='/michelangelo/cmd_vel'/>
+	</node>
+	<node pkg='turtle_run' type='main.py' name='runner'/>
+</launch>
